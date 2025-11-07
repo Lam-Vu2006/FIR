@@ -11,7 +11,7 @@ wc = 2 * np.pi * fc / fs # Tần số cắt chuẩn hóa (rad/sample) -> wc = 0.
 alpha = (N - 1) / 2
 n = np.arange(N)
 
-# Sử dụng np.sinc, lưu ý định nghĩa sinc(x) = sin(pi*x)/(pi*x)
+# Sử dụng np.sinc, sinc(x) = sin(pi*x)/(pi*x)
 h_ideal = wc / np.pi * np.sinc(wc * (n - alpha) / np.pi)
 
 # Tạo các hàm cửa sổ
@@ -118,7 +118,7 @@ for name in sorted(filters.keys()): # Sắp xếp tên cửa sổ
     width_str = f"{transition_widths[name]:.3f}" if not np.isnan(transition_widths[name]) else "N/A (<-40dB?)"
     print(f"{name:<15} | {atten_str:<25} | {width_str:<25}")
 
-# (Tùy chọn) Vẽ các Hệ số Bộ lọc
+# Vẽ các Hệ số Bộ lọc
 fig2 = plt.figure(figsize=(12, 7)) # Kích thước cho đồ thị hệ số
 ax3 = fig2.add_subplot(1, 1, 1)
 marker_list = ['o', 's', '^', 'd', 'x']
